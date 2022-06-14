@@ -10,7 +10,7 @@ Det här är den obligatoriska projektuppgift i Mobilutveckling. Uppgiften är i
 
 Som grupp skall ni utveckla en mobilapplikation m.h.a ramverket React Native. Mobilapplikations syfte, funktionalitet och design är valfri förutsatt att följande skallkrav är uppfyllda* Koden kompilerar och kan köras på en Android-enhet (emulator eller riktig)* Applikationen hanterar någon form av resurs/entitet (t.ex. todos, matrecept, försäljningsprodukter etc.) som användaren kan interagera med (t.ex. lägga till, ta bort eller modifiera) på något sätt. Det måste dock inte vara en strikt CRUD-applikation – även t.ex. en stoppklocka som hanterar varvtidereller ett sten-sax-påse-spel som hanterar spelhistorik är fullt godkänt som en applikation med en resurs som användaren interagerat med.* Apllikationen behöver bestå av minst två s.k. screens som använderen skall kunna navigera emellan.
 
-<h2>VG-Uppgift
+<h2>VG-Uppgift</h2>
   
 För VG-uppgiften gäller att samtliga kriterier som gäller för G-uppgiften också är uppfyllda. Därutöver krävs att applikationen:* Implementerar någon form av persistens av resurs(erna) som hanteras i applikationen – antingen en lokal databas (t.ex. SQLite), eller genom anrop till en backend som i sin tur persisterar data. I Rapporten skall det finnas med en reflektion / motivering kring val av lokal databas kontra en databas som anropas via en backend över HTTP för det aktuella projektet.
   
