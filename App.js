@@ -10,6 +10,7 @@ export default function App() {
     <NavigationContainer>
       <NativeStack.Navigator>
         <NativeStack.Screen
+          options={{headerShown: false}}
           name='Home'
           component={Home}
         />
