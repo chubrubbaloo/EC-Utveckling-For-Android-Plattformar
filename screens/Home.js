@@ -9,7 +9,7 @@ const Home = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Detta är hemskärmen</Text>
+            <Text style={styles.text}>Detta är hem</Text>
             <Button title='Navigera till sida #2' onPress={handlePress}></Button>
         </View>
     )
