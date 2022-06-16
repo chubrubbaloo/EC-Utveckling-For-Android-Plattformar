@@ -18,7 +18,7 @@ const MovieList = ({ movies, navigation }) => {
 
                 <Text style={styles.movieText}> {movie} </Text>
                 <Pressable
-                    style={({ pressedMovie }) => [{ opacity: pressedMovie ? 0.3 : 0.8 }]}
+                   style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }]}
                     onPress={() => handleNavigation(movie)}>
                     <MaterialIcons style={styles.clicker} name="arrow-forward" size={30} color="black" />
                 </Pressable>

@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const MovieInput = ({setMovies}) => {
 
-    const [textInput, setTextInput] = useState('');
+    const [textInput, setTextInput] = useState("");
 
 
     const handleChangedText = (text) => {
@@ -28,8 +28,8 @@ const MovieInput = ({setMovies}) => {
                 style={({ pressed }) => [styles.pressableButton,{ opacity: pressed ? 0.5 : 1 }]}
                 onPress={handleAddedMovie}
             >
-                {/* <Ionicons name="add-circle" size={24} color="white" /> */}
-                <Text style={styles.buttonText}>Adda</Text>
+                <Ionicons name="add-circle" size={18} color="white" /> 
+                <Text style={styles.buttonText}> Lägg Till</Text>
             </Pressable>
         </View>
     )
@@ -42,12 +42,13 @@ const styles = StyleSheet.create({
         marginVertical: 20
     },
     pressableButton: {
+        flexDirection: 'row',
         marginTop: 15,
         backgroundColor: 'dodgerblue',
         color: 'white',
         padding: 5,
         borderRadius: 8,
-        width: 50,
+        width: 100,
         borderWidth: 1.5
     },
     buttonText : {

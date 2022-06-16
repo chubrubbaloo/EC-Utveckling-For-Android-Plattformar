@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, Button, Dimensions, FlatList, ImageBackground, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, Button, Dimensions, FlatList, ImageBackground, NativeEventEmitter, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
@@ -15,6 +15,13 @@ const Home = ({ navigation }) => {
     useEffect(() => {
         console.log(movies)
     }, [movies]);
+
+    const emitter = new NativeEventEmitter()
+    
+    emitter.addListener('delete',(movieName) => {
+        setMovies(prev => prev.filter(movie=>movie!= movieName))
+    })
+
 
     return (
         <View style={styles.container}>
