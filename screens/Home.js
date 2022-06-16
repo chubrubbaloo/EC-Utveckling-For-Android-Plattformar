@@ -9,78 +9,46 @@ import MovieList from '../components/MovieList';
 
 const Home = ({ navigation }) => {
 
-    const handlePress = () => {
-        navigation.navigate('SelectedMovie')
-    }
 
     const [movies, setMovies] = useState([]);
-
-  
-
-  
 
     useEffect(() => {
         console.log(movies)
     }, [movies]);
 
-
-  
-
     return (
         <View style={styles.container}>
             <ImageBackground
-            source={require('../assets/color.jpg')}
-            resizeMode='cover'
-            style={styles.imageBackground}
+                source={require('../assets/color.jpg')}
+                resizeMode='cover'
+                style={styles.imageBackground}
             >
-
-           <MovieInput 
-           setMovies={setMovies}
-           />
-           <MovieList
-           movies={movies}
-           />
+                <Header title='FilmAppen' />
+                <MovieInput
+                    setMovies={setMovies}
+                />
+                <MovieList
+                    movies={movies}
+                    navigation={navigation}
+                />
+                <StatusBar style="auto" />
             </ImageBackground>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#DCDCDC',
+        alignItems: 'center',
+
+    },
     imageBackground: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
-        
-    },
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    titleInput: {
-        fontWeight: 'bold'
-    },
-    movieInput: {
-        margin: 5,
-        backgroundColor: 'white',
-        borderWidth: 1,
-        padding: 10,
-        borderRadius: 8,
-        width: 125
-    },
-    flatList: {
-        margin: 10
-    },
-    movieContainer: {
-        margin: 5,
-        borderRadius: 5,
-        borderWidth: 1.5,
-        borderStyle: 'dotted',
-        padding: 10,
-        flexDirection: 'row',
-    },
-    movieText: {
-        fontWeight: 'bold'
-    },
+
+    }
 })
 
 export default Home;

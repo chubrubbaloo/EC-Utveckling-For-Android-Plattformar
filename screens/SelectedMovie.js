@@ -1,15 +1,14 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 
-const SelectedMovie = ({navigation}) => {
+const SelectedMovie = ({route}) => {
 
-    const handlePress = () => {
-        navigation.navigate('Home')
-    } 
+    const { movie } = route.params
+
+   
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Detta är sida 2!</Text>
-            <Button title='Navigera tillbaka' onPress={handlePress}/>
+            <Text style={styles.text}>Film: {movie}</Text>
         </View>
     )
 }

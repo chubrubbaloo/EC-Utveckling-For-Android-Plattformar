@@ -6,13 +6,24 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 
 
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies, navigation }) => {
+
+    const handleNavigation = (movie) => {
+        navigation.navigate('SelectedMovie', { movie: movie });
+    }
 
     const renderMovies = ({ item: movie }) => {
         return (
             <View style={styles.movieContainer}>
-                <MaterialIcons name="movie" size={18} color="black" />
+
                 <Text style={styles.movieText}> {movie} </Text>
+                <Pressable
+                    style={({ pressedMovie }) => [{ opacity: pressedMovie ? 0.3 : 0.8 }]}
+                    onPress={() => handleNavigation(movie)}>
+                    <MaterialIcons style={styles.clicker} name="arrow-forward" size={30} color="black" />
+                </Pressable>
+
+
             </View>
         )
     }
@@ -22,41 +33,31 @@ const MovieList = ({ movies }) => {
             style={styles.flatList}
             data={movies}
             renderItem={renderMovies}
-            keyExtractor={(_, index) => index}
+            keyExtractor={(item, index) => index}
         />
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+    pressableMovie: {
     },
-    titleInput: {
-        fontWeight: 'bold'
-    },
-    movieInput: {
-        margin: 5,
-        backgroundColor: 'white',
-        borderWidth: 1,
-        padding: 10,
-        borderRadius: 8,
-        width: 125
-    },
+
     flatList: {
-        margin: 10
+        // backgroundColor: 'blue'
+
     },
     movieContainer: {
-        margin: 5,
-        borderRadius: 5,
         borderWidth: 1.5,
-        borderStyle: 'dotted',
+        margin: 10,
         padding: 10,
+        backgroundColor: '#FFF',
+        borderRadius: 6,
         flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     movieText: {
-        fontWeight: 'bold'
+        fontWeight: "bold",
+        fontSize: 20,
     },
 })
 

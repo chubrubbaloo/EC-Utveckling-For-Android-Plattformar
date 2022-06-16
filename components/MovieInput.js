@@ -16,40 +16,53 @@ const MovieInput = ({setMovies}) => {
         setMovies((previous) => previous.concat(textInput));
     }
 
-
-
     return (
-        <View>
-            <Header title='FilmAppen' />
-            <Text style={styles.titleInput}>FilmTitel</Text>
+        <View style={styles.container}>
             <TextInput
                 style={styles.movieInput}
-                placeholder='Top Gun'
+                placeholder='Titel'
                 onChangeText={handleChangedText}
                 value={textInput}
             />
             <Pressable
-                style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }]}
+                style={({ pressed }) => [styles.pressableButton,{ opacity: pressed ? 0.5 : 1 }]}
                 onPress={handleAddedMovie}
             >
-                <Ionicons name="add-circle" size={24} color="black" />
+                {/* <Ionicons name="add-circle" size={24} color="white" /> */}
+                <Text style={styles.buttonText}>Adda</Text>
             </Pressable>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-
-    titleInput: {
-        fontWeight: 'bold'
+    container:{
+        flexDirection: 'column',
+        alignItems: "center",
+        marginVertical: 20
+    },
+    pressableButton: {
+        marginTop: 15,
+        backgroundColor: 'dodgerblue',
+        color: 'white',
+        padding: 5,
+        borderRadius: 8,
+        width: 50,
+        borderWidth: 1.5
+    },
+    buttonText : {
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: "center"
     },
     movieInput: {
-        margin: 5,
-        backgroundColor: 'white',
-        borderWidth: 1,
-        padding: 10,
-        borderRadius: 8,
-        width: 125
+        backgroundColor: '#FFF',
+        marginHorizontal: 20,
+        paddingHorizontal: 10,
+        borderRadius: 6,
+        borderWidth: 1.5,
+        width: '50%'
+
     }
 })
 
