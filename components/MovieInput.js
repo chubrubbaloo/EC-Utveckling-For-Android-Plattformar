@@ -1,19 +1,24 @@
-import { Pressable, Text, TextInput, View, StyleSheet } from "react-native";
+import { Pressable, Text, TextInput, View, StyleSheet, Alert } from "react-native";
 import Header from "./Header";
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
 
-const MovieInput = ({setMovies}) => {
+const MovieInput = ({ setMovies }) => {
 
     const [textInput, setTextInput] = useState("");
 
 
     const handleChangedText = (text) => {
         setTextInput(text);
+
     }
 
     const handleAddedMovie = () => {
-        setMovies((previous) => previous.concat(textInput));
+        if (textInput.length < 1) {
+            Alert.alert('Hoppsan!', 'En filmtitel kan inte vara tom!')
+        } else {
+            setMovies((previous) => previous.concat(textInput));
+        }
     }
 
     return (
@@ -25,10 +30,10 @@ const MovieInput = ({setMovies}) => {
                 value={textInput}
             />
             <Pressable
-                style={({ pressed }) => [styles.pressableButton,{ opacity: pressed ? 0.5 : 1 }]}
+                style={({ pressed }) => [styles.pressableButton, { opacity: pressed ? 0.5 : 1 }]}
                 onPress={handleAddedMovie}
             >
-                <Ionicons name="add-circle" size={18} color="white" /> 
+                <Ionicons name="add-circle" size={18} color="white" />
                 <Text style={styles.buttonText}> Lägg Till</Text>
             </Pressable>
         </View>
@@ -36,7 +41,7 @@ const MovieInput = ({setMovies}) => {
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flexDirection: 'column',
         alignItems: "center",
         marginVertical: 20
@@ -51,7 +56,7 @@ const styles = StyleSheet.create({
         width: 100,
         borderWidth: 1.5
     },
-    buttonText : {
+    buttonText: {
         fontWeight: 'bold',
         color: 'white',
         textAlign: "center"
