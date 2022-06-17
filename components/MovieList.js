@@ -15,12 +15,10 @@ const MovieList = ({ movies, navigation }) => {
     const renderMovies = ({ item: movie }) => {
         return (
             <View style={styles.movieContainer}>
-
-                <Text style={styles.movieText}> {movie} </Text>
                 <Pressable
-                   style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }]}
+                    style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }]}
                     onPress={() => handleNavigation(movie)}>
-                    <MaterialIcons style={styles.clicker} name="arrow-forward" size={30} color="black" />
+                    <Text style={styles.movieText}> <MaterialIcons style={styles.clicker} name="movie" size={15} color="black" /> {movie} </Text>
                 </Pressable>
 
 
@@ -49,15 +47,13 @@ const styles = StyleSheet.create({
     movieContainer: {
         borderWidth: 1.5,
         margin: 10,
-        padding: 10,
         backgroundColor: '#FFF',
         borderRadius: 6,
-        flexDirection: 'row',
-        justifyContent: 'space-between'
     },
     movieText: {
         fontWeight: "bold",
         fontSize: 20,
+        padding: 10,
     },
 })
 
