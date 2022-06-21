@@ -8,7 +8,7 @@ const NativeStack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <NativeStack.Navigator>
+      <NativeStack.Navigator screenOptions={{headerShown: false}}>
         <NativeStack.Screen
           name='Home'
           component={Home}
