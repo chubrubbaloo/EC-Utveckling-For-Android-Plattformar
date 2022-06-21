@@ -23,7 +23,9 @@ const SelectedMovie = ({ route, navigation }) => {
                 source={require('../assets/color.jpg')}
                 resizeMode='cover'
             >
-                <Header />
+                <Header 
+                    movieTitle={movie}
+                />
                 <Text style={styles.text}>Film: {movie}
                     {'\n'}Genre: {movie}
                     {'\n'}Betyg: {movie}</Text>
