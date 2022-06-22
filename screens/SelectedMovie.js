@@ -1,6 +1,7 @@
 import { NativeEventEmitter, Button, Pressable, StyleSheet, Text, View, ImageBackground, Dimensions } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Header from '../components/Header';
+import HomeButton from '../components/HomeButton';
 
 const SelectedMovie = ({ route, navigation }) => {
 
@@ -23,18 +24,21 @@ const SelectedMovie = ({ route, navigation }) => {
                 source={require('../assets/color.jpg')}
                 resizeMode='cover'
             >
-                <Header 
+                <Header
                     title={movie}
                 />
                 <Text style={styles.text}>Film: {movie}
                     {'\n'}Genre: {movie}
                     {'\n'}Betyg: {movie}</Text>
                 <Pressable
-                   style={({ pressed }) => [styles.pressableButton,{ opacity: pressed ? 0.5 : 1 }]}
+                    style={({ pressed }) => [styles.pressableButton, { opacity: pressed ? 0.5 : 1 }]}
                     onPress={handleDelete}>
                     <MaterialIcons style={styles.clicker} name="remove-circle" size={18} color="white" />
                     <Text style={styles.buttonText}> Ta Bort</Text>
                 </Pressable>
+                <HomeButton
+                    navigation={navigation}
+                />
             </ImageBackground>
         </View>
     )
