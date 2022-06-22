@@ -2,10 +2,10 @@ import {StyleSheet, Text, View} from 'react-native';
 
 
 
-const Header = ({movieTitle}) => {
+const Header = ({title}) => {
     return (
         <View style={styles.container}>
-        <Text style={styles.header}>{movieTitle}</Text>
+        <Text style={styles.header}>{title}</Text>
         </View>
 
     )

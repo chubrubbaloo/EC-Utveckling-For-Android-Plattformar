@@ -24,7 +24,7 @@ const SelectedMovie = ({ route, navigation }) => {
                 resizeMode='cover'
             >
                 <Header 
-                    movieTitle={movie}
+                    title={movie}
                 />
                 <Text style={styles.text}>Film: {movie}
                     {'\n'}Genre: {movie}
