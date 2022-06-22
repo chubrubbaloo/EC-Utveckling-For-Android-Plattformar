@@ -18,10 +18,8 @@ const MovieList = ({ movies, navigation }) => {
                 <Pressable
                     style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }]}
                     onPress={() => handleNavigation(movie)}>
-                    <Text style={styles.movieText}> <MaterialIcons style={styles.clicker} name="movie" size={15} color="black" /> {movie} </Text>
+                    <Text style={styles.movieText}> <MaterialIcons style={styles.clicker} name="movie" size={15} color="black" /> {movie.title} </Text>
                 </Pressable>
-
-
             </View>
         )
     }
@@ -37,13 +35,6 @@ const MovieList = ({ movies, navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    pressableMovie: {
-    },
-
-    flatList: {
-        // backgroundColor: 'blue'
-
-    },
     movieContainer: {
         borderWidth: 1.5,
         margin: 10,
