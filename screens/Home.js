@@ -30,7 +30,7 @@ const Home = ({ navigation }) => {
                 resizeMode='cover'
                 style={styles.imageBackground}
             >
-                <Header />
+                <Header title='FilmAppen'/>
                 <MovieInput
                     setMovies={setMovies}
                 />
