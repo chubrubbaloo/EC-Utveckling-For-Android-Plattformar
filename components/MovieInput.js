@@ -33,37 +33,37 @@ const MovieInput = ({ setMovies }) => {
     return (
         <View style={styles.container}>
             <TextInput
-                style={styles.movieInput}
+                style={styles.movieinput}
                 placeholder='Titel'
                 onChangeText={(title) => handleChangedText(title, 'title')}
                 value={textInput.title}
                 clearButtonMode='always'
             />
             <TextInput
-                style={styles.movieInput}
+                style={styles.movieinput}
                 placeholder='Betyg (1-10)'
                 onChangeText={(rating) => handleChangedText(rating, 'rating')}
                 value={textInput.rating}
                 keyboardType='numeric'
             />
             <TextInput
-                style={styles.movieInput}
+                style={styles.movieinput}
                 placeholder='Genre'
                 onChangeText={(genre) => handleChangedText(genre, 'genre')}
                 value={textInput.genre}
             />
             <TextInput
-                style={styles.movieInput}
+                style={styles.movieinput}
                 placeholder='Regissör'
                 onChangeText={(director) => handleChangedText(director, 'director')}
                 value={textInput.director}
             />
             <Pressable
-                style={({ pressed }) => [styles.pressableButton, { opacity: pressed ? 0.5 : 1 }]}
+                style={({ pressed }) => [styles.pressablebutton, { opacity: pressed ? 0.5 : 1 }]}
                 onPress={handleAddedMovie}
             >
                 <Ionicons name="add-circle" size={18} color="white" />
-                <Text style={styles.buttonText}> Lägg Till</Text>
+                <Text style={styles.buttontext}> Lägg Till</Text>
             </Pressable>
         </View>
     )
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginVertical: 20
     },
-    pressableButton: {
+    pressablebutton: {
         flexDirection: 'row',
         marginTop: 15,
         backgroundColor: 'dodgerblue',
@@ -85,12 +85,12 @@ const styles = StyleSheet.create({
         width: 100,
         borderWidth: 1.5
     },
-    buttonText: {
+    buttontext: {
         fontWeight: 'bold',
         color: 'white',
         textAlign: "center"
     },
-    movieInput: {
+    movieinput: {
         backgroundColor: '#FFF',
         marginHorizontal: 20,
         marginBottom: 20,

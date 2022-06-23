@@ -14,11 +14,11 @@ const MovieList = ({ movies, navigation }) => {
 
     const renderMovies = ({ item: movie }) => {
         return (
-            <View style={styles.movieContainer}>
+            <View style={styles.moviecontainer}>
                 <Pressable
                     style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }]}
                     onPress={() => handleNavigation(movie)}>
-                    <Text style={styles.movieText}> <MaterialIcons style={styles.clicker} name="movie" size={15} color="black" /> {movie.title} </Text>
+                    <Text style={styles.movietext}> <MaterialIcons style={styles.clicker} name="movie" size={15} color="black" /> {movie.title} </Text>
                 </Pressable>
             </View>
         )
@@ -26,7 +26,7 @@ const MovieList = ({ movies, navigation }) => {
 
     return (
         <FlatList
-            style={styles.flatList}
+            style={styles.flatlist}
             data={movies}
             renderItem={renderMovies}
             keyExtractor={(item, index) => index}
@@ -35,13 +35,13 @@ const MovieList = ({ movies, navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    movieContainer: {
+    moviecontainer: {
         borderWidth: 1.5,
         margin: 10,
         backgroundColor: '#FFF',
         borderRadius: 6,
     },
-    movieText: {
+    movietext: {
         fontWeight: "bold",
         fontSize: 20,
         padding: 10,

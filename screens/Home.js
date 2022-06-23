@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { Alert, Button, Dimensions, FlatList, ImageBackground, NativeEventEmitter, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, Button, Dimensions, FlatList, ImageBackground, NativeEventEmitter, Pressable, StyleSheet, Text, TextInput, View, StatusBar } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
@@ -17,9 +16,9 @@ const Home = ({ navigation }) => {
     }, [movies]);
 
     const emitter = new NativeEventEmitter()
-    
-    emitter.addListener('delete',(movieName) => {
-        setMovies(prev => prev.filter(movie=>movie!= movieName))
+
+    emitter.addListener('delete', (movieName) => {
+        setMovies(prev => prev.filter(movie => movie != movieName))
     })
 
 
@@ -28,9 +27,9 @@ const Home = ({ navigation }) => {
             <ImageBackground
                 source={require('../assets/color.jpg')}
                 resizeMode='cover'
-                style={styles.imageBackground}
+                style={styles.imagebackground}
             >
-                <Header title='FilmAppen'/>
+                <Header title='FilmAppen' />
                 <MovieInput
                     setMovies={setMovies}
                 />
@@ -38,7 +37,10 @@ const Home = ({ navigation }) => {
                     movies={movies}
                     navigation={navigation}
                 />
-                <StatusBar style="auto" />
+                <StatusBar
+                    // backgroundColor="#FFF"
+                    barStyle="light-content"
+                />
             </ImageBackground>
         </View>
     )
@@ -51,7 +53,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
 
     },
-    imageBackground: {
+    imagebackground: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
 
