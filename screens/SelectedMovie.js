@@ -3,6 +3,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Header from '../components/Header';
+import HomeButton from '../components/HomeButton';
 
 const SelectedMovie = ({ route, navigation }) => {
 
@@ -23,7 +24,11 @@ const SelectedMovie = ({ route, navigation }) => {
                 resizeMode='cover'
             >
                 <Header
+
                     title={movie.title}
+
+                   
+
                 />
                 <Text style={styles.text}>
                     <FontAwesome style={styles.clicker} name="star" size={16} color="black" /> Betyg: {movie.rating} / 10
@@ -35,6 +40,9 @@ const SelectedMovie = ({ route, navigation }) => {
                     <MaterialIcons style={styles.clicker} name="remove-circle" size={18} color="white" />
                     <Text style={styles.buttonText}> Ta Bort</Text>
                 </Pressable>
+                <HomeButton
+                    navigation={navigation}
+                />
             </ImageBackground>
         </View>
     )
