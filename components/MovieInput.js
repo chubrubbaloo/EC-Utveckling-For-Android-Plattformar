@@ -5,19 +5,28 @@ import { useState } from "react";
 
 const MovieInput = ({ setMovies }) => {
 
-    const [textInput, setTextInput] = useState("");
+    const [textInput, setTextInput] = useState({ title: '', rating: '', genre: '', director: '' });
 
 
-    const handleChangedText = (text) => {
-        setTextInput(text);
+    const handleChangedText = (text, key) => {
+        setTextInput((prev) => ({ ...prev, [key]: text }));
 
     }
 
+
     const handleAddedMovie = () => {
-        if (textInput.length < 1) {
-            Alert.alert('Hoppsan!', 'En filmtitel kan inte vara tom!')
+        if (textInput.title == undefined ||
+            textInput.rating == undefined ||
+            textInput.genre == undefined ||
+            textInput.director == undefined) {
+            Alert.alert('Hoppsan!', 'Inga fält får vara tomma.')
+        } else if (textInput.rating > 10 ||
+            textInput.rating < 1 ||
+            textInput.rating != textInput.rating.replace(/[^0-9]/g, '')) {
+            Alert.alert('Hoppsan!', 'Var vänlig och mata in ett betyg mellan 1-10.')
         } else {
             setMovies((previous) => previous.concat(textInput));
+            setTextInput('')
         }
     }
 
@@ -26,8 +35,28 @@ const MovieInput = ({ setMovies }) => {
             <TextInput
                 style={styles.movieInput}
                 placeholder='Titel'
-                onChangeText={handleChangedText}
-                value={textInput}
+                onChangeText={(title) => handleChangedText(title, 'title')}
+                value={textInput.title}
+                clearButtonMode='always'
+            />
+            <TextInput
+                style={styles.movieInput}
+                placeholder='Betyg (1-10)'
+                onChangeText={(rating) => handleChangedText(rating, 'rating')}
+                value={textInput.rating}
+                keyboardType='numeric'
+            />
+            <TextInput
+                style={styles.movieInput}
+                placeholder='Genre'
+                onChangeText={(genre) => handleChangedText(genre, 'genre')}
+                value={textInput.genre}
+            />
+            <TextInput
+                style={styles.movieInput}
+                placeholder='Regissör'
+                onChangeText={(director) => handleChangedText(director, 'director')}
+                value={textInput.director}
             />
             <Pressable
                 style={({ pressed }) => [styles.pressableButton, { opacity: pressed ? 0.5 : 1 }]}
@@ -64,7 +93,8 @@ const styles = StyleSheet.create({
     movieInput: {
         backgroundColor: '#FFF',
         marginHorizontal: 20,
-        paddingHorizontal: 10,
+        marginBottom: 20,
+        padding: 5,
         borderRadius: 6,
         borderWidth: 1.5,
         width: '50%'

@@ -1,5 +1,7 @@
 import { NativeEventEmitter, Button, Pressable, StyleSheet, Text, View, ImageBackground, Dimensions } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Header from '../components/Header';
 import HomeButton from '../components/HomeButton';
 
@@ -11,11 +13,8 @@ const SelectedMovie = ({ route, navigation }) => {
 
     const handleDelete = () => {
         emmiter.emit('delete', movie)
-        console.log('Deleted successfully')
         navigation.goBack();
     }
-
-
 
     return (
         <View style={styles.container}>
@@ -25,11 +24,16 @@ const SelectedMovie = ({ route, navigation }) => {
                 resizeMode='cover'
             >
                 <Header
-                    title={movie}
+
+                    title={movie.title}
+
+                   
+
                 />
-                <Text style={styles.text}>Film: {movie}
-                    {'\n'}Genre: {movie}
-                    {'\n'}Betyg: {movie}</Text>
+                <Text style={styles.text}>
+                    <FontAwesome style={styles.clicker} name="star" size={16} color="black" /> Betyg: {movie.rating} / 10
+                    {'\n'}<MaterialCommunityIcons style={styles.clicker} name="pistol" size={16} color="black" /> Genre: {movie.genre}
+                    {'\n'}<FontAwesome name="video-camera" size={16} color="black" /> Regissör: {movie.director}</Text>
                 <Pressable
                     style={({ pressed }) => [styles.pressableButton, { opacity: pressed ? 0.5 : 1 }]}
                     onPress={handleDelete}>
@@ -61,17 +65,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        width: Dimensions.get('window').width, // För backgrundbilden...
+        width: Dimensions.get('window').width, 
         height: Dimensions.get('window').height
     },
 
     text: {
-        marginTop: 150,
+        marginTop: 100,
         borderWidth: 1.5,
-        backgroundColor: 'dodgerblue',
+        backgroundColor: 'white',
         fontWeight: 'bold',
-        color: 'white',
-        padding: 10,
+        fontSize: 20,
+        padding: 20,
         borderRadius: 8
     },
     buttonText: {
