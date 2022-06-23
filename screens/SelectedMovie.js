@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        width: Dimensions.get('window').width, // För backgrundbilden...
+        width: Dimensions.get('window').width, 
         height: Dimensions.get('window').height
     },
 

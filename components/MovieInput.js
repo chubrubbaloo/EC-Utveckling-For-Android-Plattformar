@@ -13,11 +13,20 @@ const MovieInput = ({ setMovies }) => {
 
     }
 
+
     const handleAddedMovie = () => {
-        if (textInput.title.length < 1) {
+        if (textInput.title == undefined ||
+            textInput.rating == undefined ||
+            textInput.genre == undefined ||
+            textInput.director == undefined) {
             Alert.alert('Hoppsan!', 'Inga fält får vara tomma.')
+        } else if (textInput.rating > 10 ||
+            textInput.rating < 1 ||
+            textInput.rating != textInput.rating.replace(/[^0-9]/g, '')) {
+            Alert.alert('Hoppsan!', 'Var vänlig och mata in ett betyg mellan 0-10.')
         } else {
             setMovies((previous) => previous.concat(textInput));
+            setTextInput('')
         }
     }
 
@@ -28,13 +37,14 @@ const MovieInput = ({ setMovies }) => {
                 placeholder='Titel'
                 onChangeText={(title) => handleChangedText(title, 'title')}
                 value={textInput.title}
+                clearButtonMode='always'
             />
             <TextInput
                 style={styles.movieInput}
                 placeholder='Betyg (1-10)'
                 onChangeText={(rating) => handleChangedText(rating, 'rating')}
                 value={textInput.rating}
-                maxLength={2}
+                keyboardType='numeric'
             />
             <TextInput
                 style={styles.movieInput}
