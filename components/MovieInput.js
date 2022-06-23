@@ -23,7 +23,7 @@ const MovieInput = ({ setMovies }) => {
         } else if (textInput.rating > 10 ||
             textInput.rating < 1 ||
             textInput.rating != textInput.rating.replace(/[^0-9]/g, '')) {
-            Alert.alert('Hoppsan!', 'Var vänlig och mata in ett betyg mellan 0-10.')
+            Alert.alert('Hoppsan!', 'Var vänlig och mata in ett betyg mellan 1-10.')
         } else {
             setMovies((previous) => previous.concat(textInput));
             setTextInput('')
