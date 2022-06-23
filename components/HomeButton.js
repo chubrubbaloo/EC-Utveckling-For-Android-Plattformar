@@ -17,9 +17,8 @@ const HomeButton = ({ navigation }) => {
             >
                 <Text style={styles.buttontext}>
                 <Ionicons name="home" size={18} color="black" />
-                    {" "} Home
+                    {" "} Hem
                 </Text>
-                {/* <Ionicons name="home" size={18} color="black" /> */}
             </Pressable>
         </View>
     )
