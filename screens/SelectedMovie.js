@@ -35,10 +35,10 @@ const SelectedMovie = ({ route, navigation }) => {
                     {'\n'}<MaterialCommunityIcons style={styles.clicker} name="pistol" size={16} color="black" /> Genre: {movie.genre}
                     {'\n'}<FontAwesome name="video-camera" size={16} color="black" /> Regissör: {movie.director}</Text>
                 <Pressable
-                    style={({ pressed }) => [styles.pressableButton, { opacity: pressed ? 0.5 : 1 }]}
+                    style={({ pressed }) => [styles.pressablebutton, { opacity: pressed ? 0.5 : 1 }]}
                     onPress={handleDelete}>
                     <MaterialIcons style={styles.clicker} name="remove-circle" size={18} color="white" />
-                    <Text style={styles.buttonText}> Ta Bort</Text>
+                    <Text style={styles.buttontext}> Ta Bort</Text>
                 </Pressable>
                 <HomeButton
                     navigation={navigation}
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     addMargin: {
         marginBottom: 50
     },
-    pressableButton: {
+    pressablebutton: {
         marginTop: 15,
         backgroundColor: 'dodgerblue',
         color: 'white',
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 8
     },
-    buttonText: {
+    buttontext: {
         fontWeight: 'bold',
         color: 'white'
     }

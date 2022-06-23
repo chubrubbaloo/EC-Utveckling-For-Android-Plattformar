@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import { StyleSheet, View, Text, Pressable } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 
 const HomeButton = ({ navigation }) => {
@@ -15,8 +16,10 @@ const HomeButton = ({ navigation }) => {
                 style={({ pressed }) => [styles.homebutton, { opacity: pressed ? 0.5 : 1.0 }]}
             >
                 <Text style={styles.buttontext}>
-                    Home
+                <Ionicons name="home" size={18} color="black" />
+                    {" "} Home
                 </Text>
+                {/* <Ionicons name="home" size={18} color="black" /> */}
             </Pressable>
         </View>
     )
@@ -34,10 +37,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         borderRadius: 6,
         borderWidth: 1,
+        width: '25%'
     },
     buttontext: {
+        flexDirection: 'row',
         color: '#000000',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     }
 
 })
