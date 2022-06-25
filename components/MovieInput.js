@@ -2,6 +2,8 @@ import { Pressable, Text, TextInput, View, StyleSheet, Alert } from "react-nativ
 import Header from "./Header";
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
+import Movie from "../models/Movie";
+import { findAll, insert } from "../.expo-shared/database/DbUtils";
 
 const MovieInput = ({ setMovies }) => {
 
@@ -25,7 +27,14 @@ const MovieInput = ({ setMovies }) => {
             textInput.rating != textInput.rating.replace(/[^0-9]/g, '')) {
             Alert.alert('Hoppsan!', 'Var vänlig och mata in ett betyg mellan 1-10.')
         } else {
-            setMovies((previous) => previous.concat(textInput));
+            const movie = new Movie(0, textInput.title, textInput.rating, textInput.genre, textInput.director)
+            insert(movie)
+                .then(res => {
+                    console.log("insert result: ", res)
+                    return findAll()
+                })
+                .then(result => setMovies(result))
+                .catch(err => console.log(err))
             setTextInput('')
         }
     }

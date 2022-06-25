@@ -4,6 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Header from '../components/Header';
 import HomeButton from '../components/HomeButton';
+import { deleteById } from '../.expo-shared/database/DbUtils';
 
 const SelectedMovie = ({ route, navigation }) => {
 
@@ -11,8 +12,11 @@ const SelectedMovie = ({ route, navigation }) => {
 
     const emmiter = new NativeEventEmitter();
 
-    const handleDelete = () => {
-        emmiter.emit('delete', movie)
+    const handleDelete = (id) => {
+        deleteById(id)
+            .then(emmiter.emit('delete', movie))
+            .catch(err=>console.log(err))
+
         navigation.goBack();
     }
 
@@ -27,7 +31,7 @@ const SelectedMovie = ({ route, navigation }) => {
 
                     title={movie.title}
 
-                   
+
 
                 />
                 <Text style={styles.text}>
@@ -36,7 +40,7 @@ const SelectedMovie = ({ route, navigation }) => {
                     {'\n'}<FontAwesome name="video-camera" size={16} color="black" /> Regissör: {movie.director}</Text>
                 <Pressable
                     style={({ pressed }) => [styles.pressablebutton, { opacity: pressed ? 0.5 : 1 }]}
-                    onPress={handleDelete}>
+                    onPress={() => handleDelete(movie.id)}>
                     <MaterialIcons style={styles.clicker} name="remove-circle" size={18} color="white" />
                     <Text style={styles.buttontext}> Ta Bort</Text>
                 </Pressable>
@@ -65,7 +69,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        width: Dimensions.get('window').width, 
+        width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
     },
 

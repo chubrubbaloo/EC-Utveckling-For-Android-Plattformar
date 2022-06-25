@@ -5,22 +5,28 @@ import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import MovieInput from '../components/MovieInput';
 import MovieList from '../components/MovieList';
+import { findAll } from '../.expo-shared/database/DbUtils';
 
 const Home = ({ navigation }) => {
 
 
     const [movies, setMovies] = useState([]);
 
-    useEffect(() => {
-        console.log(movies)
-    }, [movies]);
+
 
     const emitter = new NativeEventEmitter()
 
-    emitter.addListener('delete', (movieName) => {
-        setMovies(prev => prev.filter(movie => movie != movieName))
+    const deleteEmitter = emitter.addListener('delete', (movieName) => {
+        findAll()
+        .then(res => setMovies(res))
+        .catch(err => console.log(err))
     })
 
+    useEffect(() => {
+        findAll()
+        .then(res => setMovies(res))
+        return () => deleteEmitter.remove()
+    }, []);
 
     return (
         <View style={styles.container}>
