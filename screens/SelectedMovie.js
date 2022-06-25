@@ -5,20 +5,13 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Header from '../components/Header';
 import HomeButton from '../components/HomeButton';
 import { deleteById } from '../.expo-shared/database/DbUtils';
+import MovieInfo from '../components/MovieInfo';
 
 const SelectedMovie = ({ route, navigation }) => {
 
     const { movie } = route.params
 
-    const emmiter = new NativeEventEmitter();
 
-    const handleDelete = (id) => {
-        deleteById(id)
-            .then(emmiter.emit('delete', movie))
-            .catch(err=>console.log(err))
-
-        navigation.goBack();
-    }
 
     return (
         <View style={styles.container}>
@@ -28,23 +21,10 @@ const SelectedMovie = ({ route, navigation }) => {
                 resizeMode='cover'
             >
                 <Header
-
                     title={movie.title}
-
-
-
                 />
-                <Text style={styles.text}>
-                    <FontAwesome style={styles.clicker} name="star" size={16} color="black" /> Betyg: {movie.rating} / 10
-                    {'\n'}<MaterialCommunityIcons style={styles.clicker} name="pistol" size={16} color="black" /> Genre: {movie.genre}
-                    {'\n'}<FontAwesome name="video-camera" size={16} color="black" /> Regissör: {movie.director}</Text>
-                <Pressable
-                    style={({ pressed }) => [styles.pressablebutton, { opacity: pressed ? 0.5 : 1 }]}
-                    onPress={() => handleDelete(movie.id)}>
-                    <MaterialIcons style={styles.clicker} name="remove-circle" size={18} color="white" />
-                    <Text style={styles.buttontext}> Ta Bort</Text>
-                </Pressable>
-                <HomeButton
+                <MovieInfo
+                    movie={movie}
                     navigation={navigation}
                 />
             </ImageBackground>
