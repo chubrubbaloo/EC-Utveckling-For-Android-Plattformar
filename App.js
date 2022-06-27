@@ -1,10 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useEffect } from 'react';
-import { StatusBar } from 'react-native-web';
 import { getTableInfo, initDB } from './.expo-shared/database/DbUtils';
 import Home from './screens/Home';
 import SelectedMovie from './screens/SelectedMovie';
+import { StatusBar } from 'react-native';
 
 const NativeStack = createNativeStackNavigator();
 
@@ -22,6 +22,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
+          <StatusBar
+    barStyle="light-content"
+/>
       <NativeStack.Navigator screenOptions={{ headerShown: false }}>
         <NativeStack.Screen
           name='Home'

@@ -1,8 +1,7 @@
-import { NativeEventEmitter, Button, Pressable, StyleSheet, Text, View, ImageBackground, Dimensions } from 'react-native';
+import { NativeEventEmitter, Pressable, StyleSheet, Text, View, Dimensions } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import Header from '../components/Header';
 import HomeButton from '../components/HomeButton';
 import { deleteById } from '../.expo-shared/database/DbUtils';
 
@@ -52,7 +51,6 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
     },
-
     text: {
         marginTop: 100,
         borderWidth: 1.5,
@@ -68,7 +66,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white'
     }
-
 })
 
 export default MovieInfo;

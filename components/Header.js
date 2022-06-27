@@ -1,7 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-
-
 const Header = ({ title }) => {
     return (
         <View style={styles.container}>

@@ -1,5 +1,4 @@
 import { Pressable, Text, TextInput, View, StyleSheet, Alert } from "react-native";
-import Header from "./Header";
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
 import Movie from "../models/Movie";
@@ -12,7 +11,6 @@ const MovieInput = ({ setMovies }) => {
 
     const handleChangedText = (text, key) => {
         setTextInput((prev) => ({ ...prev, [key]: text }));
-
     }
 
 
@@ -107,7 +105,6 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         borderWidth: 1.5,
         width: '50%'
-
     }
 })
 

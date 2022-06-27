@@ -1,9 +1,5 @@
-import { Pressable, Text, TextInput, View, StyleSheet, FlatList } from "react-native";
-import Header from "./Header";
-import { Ionicons } from '@expo/vector-icons';
-import { useState } from "react";
+import { Pressable, Text, View, StyleSheet, FlatList } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
-
 
 
 const MovieList = ({ movies, navigation }) => {

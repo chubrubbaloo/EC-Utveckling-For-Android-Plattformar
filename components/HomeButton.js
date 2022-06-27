@@ -1,7 +1,5 @@
-import { useNavigation } from '@react-navigation/native'
 import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
 
 const HomeButton = ({ navigation }) => {
 
@@ -43,7 +41,6 @@ const styles = StyleSheet.create({
         color: '#000000',
         fontWeight: 'bold',
     }
-
 })
 
 export default HomeButton;

@@ -1,6 +1,4 @@
-import { Alert, Button, Dimensions, FlatList, ImageBackground, NativeEventEmitter, Pressable, StyleSheet, Text, TextInput, View, StatusBar } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { Dimensions, ImageBackground, NativeEventEmitter, StyleSheet, View} from 'react-native';
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import MovieInput from '../components/MovieInput';
@@ -43,10 +41,6 @@ const Home = ({ navigation }) => {
                     movies={movies}
                     navigation={navigation}
                 />
-                <StatusBar
-                    // backgroundColor="#FFF"
-                    barStyle="light-content"
-                />
             </ImageBackground>
         </View>
     )
@@ -57,12 +51,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#DCDCDC',
         alignItems: 'center',
-
     },
     imagebackground: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
-
     }
 })
 
