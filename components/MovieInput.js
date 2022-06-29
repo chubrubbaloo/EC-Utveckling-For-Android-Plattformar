@@ -15,10 +15,10 @@ const MovieInput = ({ setMovies }) => {
 
 
     const handleAddedMovie = () => {
-        if (textInput.title == undefined ||
-            textInput.rating == undefined ||
-            textInput.genre == undefined ||
-            textInput.director == undefined) {
+        if (textInput.title == undefined || textInput.title == "" ||
+            textInput.rating == undefined || textInput.rating == "" ||
+            textInput.genre == undefined || textInput.genre == "" ||
+            textInput.director == undefined || textInput.director == "") {
             Alert.alert('Hoppsan!', 'Inga fält får vara tomma.')
         } else if (textInput.rating > 10 ||
             textInput.rating < 1 ||
