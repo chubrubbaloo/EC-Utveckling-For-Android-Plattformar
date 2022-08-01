@@ -1,6 +1,6 @@
-# FilmAppen
 
-<h1>Projektuppgift Mobilutveckling</h1>
+
+<h1>Projektuppgift - Utveckling för Androidplattformar</h1>
 
 <h2>Översikt</h2>
 
